@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          login page
+        </title>
+        <style>
+            body{
+            background-color:midnightblue ;
+            }
+  
+   
+        button{
+            margin:20px;
+            padding:7px;
+            width: 260px;
+            cursor:pointer;
+            background-color:lightblue;
+            color:black;
+            font-weight: bold;
+            font-size: 18px;
+          
+        }
+ 
+      
+        h2{
+            color:blue;
+            text-align: center;
+            
+        }
+           .forgot-container {
+             text-align:center;
+        }
+        
+        .card {
+      background:white;
+      width: 320px;
+      margin: 80px auto;
+      padding: 25px;
+      border-radius: 20px;
+        }  
+
+     
+        </style>
+    </head>
+    <body>
+   
+
+        <div class="card">
+            <h2>
+                HealthyBite login
+            </h2>
+            <label>Username:</label>
+            <input type="text" id="username" placeholder="Enter username"><br><br>
+              <label>password:</label>
+            <input type="password" id="password" placeholder="Enter Password"><br>
+            
+   
+            <button onclick ="checkLogin()">LOGIN</button> 
+          <div class="forgot-container">
+    <a href="#">Forgot password</a>
+</div>
+           
+          
+            <script>
+             
+    function checkLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+      
+if(username === "" || password === ""){
+    alert("Please enter username & password");
+    return;
+}
+       localStorage.setItem("savedUsername", username);
+    
+    alert("Login Successful ✅");
+    window.location.href = "govindha.html"; 
+}
+
+     </script>
+            
+  </div>
+
+        </div>
+    </body>
+</html>
