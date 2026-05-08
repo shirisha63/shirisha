@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            js
+        </title>
+        <style>
+
+
+     
+       .container {
+      margin-top: 40px;
+    }
+   
+
+    .card {
+      background:white;
+      width: 360px;
+      margin: auto;
+      padding: 25px;
+      border-radius:20px;
+      height:350px;
+    }
+      header {
+      background: black;
+      color: white;
+      padding: 20px;
+      font-size: 38px;
+        text-align:center;
+      font-weight: bold;
+    
+      
+    }
+   
+          body{
+            background-color:#f4f6f8;
+          text-align: center;}
+           
+             input, select {
+      width: 90%;
+      padding: 12px;
+      margin: 10px;
+      border-radius: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc; 
+     }
+
+      button{
+        width:90%;
+        padding:12px;
+        margin:10px;
+        border-radius: 10px;
+  font-size: 18px;
+  border: none;
+  background: blue;
+  cursor: pointer;
+  
+      }
+     
+        </style>                    
+    </head>
+    <body>
+        <header>Healthybite-Smart Recommender</header>
+        
+
+
+<div class="container">
+  <div class="card">
+    <h2>Enter Your Health Details</h2>
+
+    <input type="number" id="age" placeholder="Enter Age">    
+    <input type="number" id="weight" placeholder="Enter Weight (kg)">
+
+    <select id="goal">
+      <option value="">Select Goal</option>
+      <option value="weightloss">Weight Loss</option>
+      <option value="musclegain">Muscle Gain</option>
+      <option value="diabetic">Diabetic (Low Sugar)</option>
+      <option value="bp">BP Patient (Low Salt)</option>
+    </select>
+       <button onclick="recommendFood()">Get Recommendation </button>
+
+    <div id="result"></div>
+    </div>
+    </div>
+<script>    
+function recommendFood() {
+    let goal = document.getElementById("goal").value;
+     let age = document.getElementById("age").value; 
+ 
+    if(!goal){
+        alert("Please select a goal!");
+     
+    }
+    
+localStorage.setItem("goal", goal);
+localStorage.setItem("age", age);
+
+   
+    window.location.href = "keshava.html";
+}
+    </script>
+
+
+
+    </body>
+</html>
