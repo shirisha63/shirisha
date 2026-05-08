@@ -1,0 +1,131 @@
+
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            redirect page
+        </title>
+        <style>
+  body { font-family: sans-serif; text-align:center;background:#f1f5f9; padding:20px; }
+  .food-card { background:#e5e7eb; padding:10px; margin:10px auto; width:300px; border-radius:12px; }
+</style>
+    </head>
+    <body>
+<h2 style="color:green;">✅Recommended Food</h2>
+<div id="display"></div>
+<h2 style="color:red;">❌Not Recommended Foods</h2>
+<div id="avoid"></div>
+
+
+<script>    
+let goal = localStorage.getItem("goal");
+
+let age = parseInt(localStorage.getItem("age"));    
+let foods = []; 
+let NotRecommendedFoods=[];
+
+
+    
+        if(goal == "weightloss"){
+    
+    if(age <= 18){
+        foods = [
+            "Fruits (apple, banana)",
+            "Milk",
+            "Boiled vegetables",
+            "Home-made food",
+            "Oats"
+        ];
+                NotRecommendedFoods = ["Chocolates","Soft drinks",
+                "Fried snacks","Ice cream","Sugary cereals"];
+
+    }
+    
+    else if(age <40){
+        foods = [
+            "Brown rice",
+            "Leafy vegetables",
+            "Sprouts",
+            "Fruit mix",
+            "Whole grains",
+            "Green tea"
+        ];
+         NotRecommendedFoods = ["Fast food",
+         "Sugary drinks","Pastries","High-fat cheese","sauces","Packaged snacks"];
+    }
+    
+    else {
+        foods = [
+            "Light meals",
+            "Steamed vegetables",
+            "Soups",
+            "Oats & millets",
+            "Low oil food",
+            "Fruits (low sugar)"
+        ];
+        NotRecommendedFoods = ["Fried foods","Sugary desserts","Processed meats",
+        "High salt foods","Creamy sauces"];
+    
+    } 
+} 
+if(goal=="musclegain"){
+    if(age>=18 && age<=50){
+foods=["Eggs","Chicken Breast","Salmon & Fatty fish","Cottage Cheese","protein powders","Greek Yogurt"];
+  NotRecommendedFoods= ["Junk & fast foods"]
+}
+    else if(age<18){ //Foods suitable for teenagers
+foods=["Eggs", "Milk", "Paneer (Cottage Cheese)", "Peanut Butter", "Chicken (if non-vegetarian)", "Greek Yogurt", "Lentils & Beans"];
+   NotRecommendedFoods=[Alcohol,Sugaryfoods ,drinks]  
+} 
+ else if(age>50){{
+    foods=["chicken breast","Mutton","nutsandseeds","fish","banana"];
+    NotRecommendedFoods=["alcohol","junk foods","oily foods","Excess sugar items", " Excess salt foods"];
+ }}
+}
+ if(goal=="diabetic"){
+    if(age<18){//diabetic kids
+    foods=["Milk", "Whole grains", "Apple (limited)", "Carrot", "Leafy vegetables",
+    "bitter gourd"];
+    NotRecommendedFoods = ["Chocolates", "Soft drinks", "Candies", "Ice creams  "];
+}
+
+else if(age>=18 && age<=50){
+    foods=["Sugarless fruits", "Steamed vegetables", "Bitter gourd", "Whole grains", "Nuts", "Brown rice",
+        "Baked potato wedges instead of French fries","Baked chicken instead of fried chicken"  ];
+  
+    NotRecommendedFoods= ["White bread", "Sugary drinks", "Fried foods", "Sweets","Sweetened yogurt" ];
+    }
+
+else if(age>50){
+    foods=["Sugarless foods","Bitter gourd", "Leafy greens", "Oats", "Soft cooked vegetables", 
+    "Low-fat dairy(Low-fat milk: ~1-    2% fat)", "Sprouts"];
+   NotRecommendedFoods = ["Bakery items", "Sugary foods", "Heavy fried items((like fries, fried chicken, pakoras, samosas) are high in fat)", 
+"Creamy desserts", "Sweetened drinks"];
+}} 
+
+if(goal=="bp"){
+  
+    if(age < 18){
+        foods = ["Fruits (banana, apple, berries)","Vegetables (spinach, carrot, tomato)","Oats","Whole grains","Nuts"];
+        NotRecommendedFoods = ["Packaged snacks"," salt Chips","Pickles","Instant noodles","Fast food"];
+    } else if(age >= 18 && age <= 50){
+        foods = ["Leafy greens","Oats","Brown rice","Nuts & seeds","Low-fat dairy","Steamed/boiled vegetables","Olive oil"];
+        NotRecommendedFoods = ["Processed foods","Salty snacks","High-sodium foods","Fried foods","Butter/cream-heavy dishes"];
+    } else {
+        foods = ["Soft-cooked vegetables","Oats","Low-fat dairy","Fruits (berries, citrus)","Sprouts","Light soups"];
+        NotRecommendedFoods = ["Cured meats","Pickles","High-sodium soups","Fried snacks","salty Foods"];
+    }
+}
+
+ let display = document.getElementById("display");
+  foods.forEach(f => {
+      display.innerHTML += `<div class="food-card">${f}</div>`;
+  });
+    
+let avoid= document.getElementById("avoid");
+  NotRecommendedFoods.forEach(f => {
+      avoid.innerHTML += `<div class="food-card">${f}</div>`; });
+</script>
+ 
+    </body>
+</html>
